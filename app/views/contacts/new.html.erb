@@ -1,0 +1,30 @@
+<p><%= notice %></p>
+
+<h1>お問い合わせ</h1>
+
+<%= form_for(@contact) do |f| %>
+  <% if @contact.errors.any? %>
+    <div id="error_explanation">
+      <h2 style="color: red"><%= @contact.errors.count %>件のエラーがあります。</h2>
+
+      <ul style="color: red">
+      <% @contact.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+  <br>
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+  <br>
+  <%= f.submit %>
+<% end %>
+
+<%= link_to "トップページにもどる", toppage_index_path %>
