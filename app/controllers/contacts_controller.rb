@@ -10,7 +10,7 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.create(contacts_params)
     if @contact.save
-      redirect_to new_contact_path, notice:"お問い合わせありがとうございました！"
+      redirect_to  root_path, notice:"お問い合わせありがとうございました！"
     else
       # 入力フォームを再描画します。
       render 'new'
