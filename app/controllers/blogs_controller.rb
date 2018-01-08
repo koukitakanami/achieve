@@ -1,10 +1,11 @@
 class BlogsController < ApplicationController
-   before_action :authenticate_user!
+  #before_action :authenticate_user!
   
   before_action :set_blog, only: [:edit, :update, :destroy]
   
   def index
     @blogs = Blog.all
+    #raise
   end
   
   def new
@@ -21,7 +22,7 @@ class BlogsController < ApplicationController
     @blog.user_id = current_user.id
     if @blog.save
       redirect_to blogs_path, notice:"ブログを作成しました！"
-      NoticeMailer.sendmail_blog(@blog).deliver
+      #NoticeMailer.sendmail_blog(@blog).deliver
     else
       # 入力フォームを再描画します。
       render 'new'
