@@ -25,6 +25,15 @@ class CommentsController < ApplicationController
     end
   end
 
+  def update
+    @comment = Comment.find(params[:id])
+    if @comment.update(comment_params)
+      redirect_to blog_path(@comment.blog), notice:"コメントを編集しました。"
+    else
+      render 'edit'
+    end
+  end
+
   private
     # ストロングパラメーター
     def comment_params
