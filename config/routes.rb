@@ -11,10 +11,9 @@ Rails.application.routes.draw do
   
   resources :poems, only: [:index,:show] 
   
-  resources :blogs, only: [:index, :new, :create,:edit,:update,:destroy] do
-    collection do
-      post :confirm
-    end
+  resources :blogs do
+    resources :comments
+    post :confirm, on: :collection
   end
   
   resources :contacts, only: [:new, :create] do
@@ -24,6 +23,10 @@ Rails.application.routes.draw do
   end
   
   root 'toppage#index'
+  
+  resources :blogs do
+    resources :comments
+  end
   
   # if Rails.env.development?
   #   mount LetterOpenerWeb::Engine, at: "/letter_opener"

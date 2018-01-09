@@ -1,0 +1,15 @@
+
+[1mFrom:[0m /home/ubuntu/workspace/achieve/app/views/blogs/index.html.erb @ line 8 ActionView::CompiledTemplates#_app_views_blogs_index_html_erb___4005282132447671174_69955974938460:
+
+     [1;34m3[0m:     <p><%= notice %></p>
+     [1;34m4[0m:     <h1>■ブログ一覧</h1>
+     [1;34m5[0m:       <%= link_to "ブログを作成する", new_blog_path, class: 'btn btn-default' %>
+     [1;34m6[0m:     <% @blogs.each do |blog| %>
+     [1;34m7[0m:     <div class="row">
+ =>  [1;34m8[0m:       <% binding.pry %>
+     [1;34m9[0m:       <!--p>投稿者：<!--%= blog.user.name %></p-->
+    [1;34m10[0m:         <table>
+    [1;34m11[0m:           <tr>
+    [1;34m12[0m:             <td><%= profile_img(blog.user) if profile_img(blog.user) %></td>
+    [1;34m13[0m:             <td align = "left"><h5><p>投稿者：</p><%= blog.user.name %></h5></td>
+

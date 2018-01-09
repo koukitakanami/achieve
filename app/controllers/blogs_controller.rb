@@ -1,11 +1,19 @@
 class BlogsController < ApplicationController
   #before_action :authenticate_user!
   
-  before_action :set_blog, only: [:edit, :update, :destroy]
+  before_action :set_blog, only: [:edit, :update, :destroy, :show]
   
   def index
     @blogs = Blog.all
-    #raise
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+  
+  def show
+    @comment = @blog.comments.build
+    @comments = @blog.comments
   end
   
   def new
@@ -17,8 +25,8 @@ class BlogsController < ApplicationController
   end
   
   def create
-    #@blog = Blog.create(blogs_params)
-    @blog = Blog.new(blogs_params)
+    @blog = Blog.create(blogs_params)
+    #@blog = Blog.new(blogs_params)
     @blog.user_id = current_user.id
     if @blog.save
       redirect_to blogs_path, notice:"ブログを作成しました！"
@@ -55,5 +63,5 @@ class BlogsController < ApplicationController
   def set_blog
       @blog = Blog.find(params[:id])
   end
-  
+
 end
