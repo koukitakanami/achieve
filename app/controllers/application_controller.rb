@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   #PERMISSIBLE_ATTRIBUTES = %i(name)
 
   PERMISSIBLE_ATTRIBUTES = %i(name avatar avatar_cache)
-  
+  #
   protected
 
     #deviseのストロングパラメーターにカラム追加するメソッドを定義
