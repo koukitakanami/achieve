@@ -4,7 +4,7 @@
     <% if user_signed_in? %>
         <li><%= link_to "ブログ一覧", blogs_path %></li>
     <% else %>
-        <li><%= link_to "ブログ一覧", new_user_session %></li>
+        <li><%= link_to "ブログ一覧", new_user_session_path %></li>
     <% end %>
     <br>
     <li><%= link_to "お問い合わせ", new_contact_path %></li>
