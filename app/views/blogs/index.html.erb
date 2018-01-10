@@ -6,12 +6,7 @@
     <% @blogs.each do |blog| %>
     <div class="row">
       <!--p>投稿者：<!--%= blog.user.name %></p-->
-        <table>
-          <tr>
-            <td><%= profile_img(blog.user) if profile_img(blog.user) %></td>
-            <td align = "left"><h5><p>投稿者：</p><%= blog.user.name %></h5></td>
-          </tr>
-        </table>
+
       <%= link_to blog_path(blog) do %>
           <h4><strong><%= blog.title %></strong></h4>
       <% end %>
