@@ -28,10 +28,6 @@ Rails.application.routes.draw do
   
   root 'toppage#index'
   
-  resources :blogs do
-    resources :comments
-  end
-  
   resources :relationships, only: [:create, :destroy]
   
   # if Rails.env.development?
