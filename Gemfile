@@ -72,3 +72,5 @@ gem 'mini_magick'
 gem 'therubyracer'
 
 gem 'activeresource' 
+
+gem 'pusher'

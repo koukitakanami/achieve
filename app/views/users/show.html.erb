@@ -3,16 +3,14 @@
     <%= @user.name %>
     <%= profile_img(@user) %>
     <%= @user.email %>
-    <br><br><br><%= "#{@user.name}のフォロー一覧" %>
+    <br><br><%= "#{@user.name}のフォロー一覧" %>
     <% @user.followed_users.each do |user| %>
-      <br>
       <%= user.name %>
       <%= profile_img(user) %>
       <%= user.email %>
     <% end %>
-    <br><br><br><%= "#{@user.name}のフォロワーー一覧" %>
+    <br><br><%= "#{@user.name}のフォロワーー一覧" %>
     <% @user.followers.each do |user| %>
-      <br>
       <%= user.name %>
       <%= profile_img(user) %>
       <%= user.email %>
