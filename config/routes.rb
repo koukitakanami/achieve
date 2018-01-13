@@ -3,13 +3,12 @@ Rails.application.routes.draw do
   get 'notifications/index'
 
   #mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-
-  devise_for :users, controllers: {
-    registrations: "users/registrations",
-    omniauth_callbacks: "users/omniauth_callbacks"
-  }
   
-  resources :users, only: [:index, :show]
+  # resources :blogs, only:[:index,:new,:create,:edit,:update,:destroy] do
+  #   collection do
+  #     post :confirm
+  #   end
+  # end
 
   resources :toppage, only:[:index]
   
@@ -29,6 +28,13 @@ Rails.application.routes.draw do
   root 'toppage#index'
   
   resources :relationships, only: [:create, :destroy]
+  
+  devise_for :users, controllers: {
+    registrations: "users/registrations",
+    omniauth_callbacks: "users/omniauth_callbacks"
+  }
+  
+  resources :users, only: [:index, :show]
   
   # if Rails.env.development?
   #   mount LetterOpenerWeb::Engine, at: "/letter_opener"

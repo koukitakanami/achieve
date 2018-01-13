@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  #before_action :authenticate_user!
+  before_action :authenticate_user!
   
   before_action :set_blog, only: [:edit, :update, :destroy, :show]
   
@@ -47,6 +47,7 @@ class BlogsController < ApplicationController
   end
   
   def destroy
+    # binding.pry
     @blog.destroy
     redirect_to blogs_path ,notice:"ブログを削除しました！"
   end

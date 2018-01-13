@@ -74,3 +74,5 @@ gem 'therubyracer'
 gem 'activeresource' 
 
 gem 'pusher'
+
+gem 'fog'
